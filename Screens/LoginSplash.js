@@ -50,7 +50,7 @@ export default function LoginSplash({ navigation }) {
 						onPress={pressHandler.bind(this, "Sign Up")}
 						outer={styles.border}
 					>
-						Sign Up
+						Sign up
 					</PrimaryButton>
 				</View>
 			</View>

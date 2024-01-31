@@ -99,7 +99,7 @@ export default function LoginPage({ navigation }) {
 									onPress={() => navigation.navigate("Sign Up")}
 								>
 									<Text className="text-primaryBlue text-base font-semibold ">
-										Sign Up
+										Sign up
 									</Text>
 								</TouchableOpacity>
 							</View>
