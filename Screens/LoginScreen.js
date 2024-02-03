@@ -11,7 +11,6 @@ import {
 	ScrollView,
 } from "react-native";
 import PrimaryButton from "../Components/primaryButton";
-import SecondaryButton from "../Components/SecondaryButton";
 import Colors from "../Components/Colors";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import * as Yup from "yup";

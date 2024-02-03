@@ -75,8 +75,8 @@ export default function SignUpPage({ navigation }) {
 				onSubmit={(values) => console.log(values)}
 			>
 				{({ handleChange, handleSubmit, values, touched, errors }) => (
-					<View className=" flex-1 flex-col justify-between items-center w-full h-full bg-white p-3">
-						<View className=" py-14 ">
+					<View className=" flex-1 flex-col justify-evenly items-center w-full h-full bg-white p-3">
+						<View className=" my-10 py-14 ">
 							<Text
 								className="text-2xl font-bold text-center"
 								style={{ color: Colors.primaryBlue }}
@@ -86,7 +86,7 @@ export default function SignUpPage({ navigation }) {
 						</View>
 
 						<View className=" flex-col w-full px-4 justify-between ">
-							<View className=" pb-12 justify-between">
+							<View className=" pb-12 mb-4 justify-between">
 								<TextInput
 									className=" mb-4 border-b border-gray-200 py-2 px-2 text-base text-gray-700"
 									placeholder="Name"
@@ -215,6 +215,7 @@ export default function SignUpPage({ navigation }) {
 										onPress={() => {
 											handleSubmit();
 											console.log({ errors });
+											navigation.navigate("Home");
 										}}
 									>
 										Sign In
@@ -222,10 +223,10 @@ export default function SignUpPage({ navigation }) {
 								</View>
 							</View>
 
-							<View className=" flex-row p-4 mb-2 justify-center items-center">
-								<Text className="flex">Already have an account?</Text>
+							<View className=" flex-row p-4 mb-4 justify-center items-center">
+								<Text>Already have an account?</Text>
 								<TouchableOpacity
-									className="px-2 flex"
+									className="px-2 "
 									onPress={() => navigation.navigate("Login")}
 								>
 									<Text className="text-primaryBlue text-base font-semibold ">

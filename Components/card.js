@@ -1,9 +1,9 @@
 import { View, Text, Pressable } from "react-native";
 import Colors from "./Colors";
 
-export default function PrimaryButton({ outer, children, onPress, textStyle }) {
+export default function Card({ outer, children, onPress, textStyle }) {
 	return (
-		<View className=" my-4 rounded-xl w-full overflow-hidden " style={outer}>
+		<View className=" my-4 rounded-xl w-full overflow-hidden">
 			<Pressable
 				android_ripple={{ color: Colors.rippleBlue }}
 				onPress={onPress}

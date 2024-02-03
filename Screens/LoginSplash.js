@@ -1,3 +1,4 @@
+import React from "react";
 import {
 	ImageBackground,
 	Pressable,
@@ -10,12 +11,10 @@ import PrimaryButton from "../Components/primaryButton";
 import Colors from "../Components/Colors";
 
 export default function LoginSplash({ navigation }) {
-
 	function pressHandler(button) {
 		if (button === "Login") {
 			navigation.navigate("Login");
-		} 
-		else if (button === "Sign Up") {
+		} else if (button === "Sign Up") {
 			navigation.navigate("Sign Up");
 		}
 	}

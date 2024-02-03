@@ -7,6 +7,8 @@ module.exports = {
 		"./Components/SecondaryButton.{js,jsx,ts,tsx}",
 		"./Screens/LoginSplash.{js,jsx,ts,tsx}",
 		"./Screens/SignUp.{js,jsx,ts,tsx}",
+		"./Screens/Home.{js,jsx,ts,tsx}",
+		"./Screens/MenuScreen.{js,jsx,ts,tsx}",
 	],
 	theme: {
 		extend: { colors: { primaryBlue: "#0062f5", rippleBlue: "#002861ff" } },
