@@ -17,6 +17,7 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { signUpUser } from "../util/Api";
 
 const PasswordSchema = Yup.object().shape({
 	password: Yup.string()
@@ -24,13 +25,13 @@ const PasswordSchema = Yup.object().shape({
 		.max(16, "*Password should be max of 16 characters")
 		.required("*Password is required"),
 
-	confirmPassword: Yup.string()
-		.oneOf([Yup.ref("password"), null], "*Passwords must match")
-		.required("*Password is required"),
+	// confirmPassword: Yup.string()
+	// 	.oneOf([Yup.ref("password"), null], "*Passwords must match")
+	// 	.required("*Password is required"),
 
-	phone: Yup.string()
-		.min(10, "*Phone number must be 10 digits")
-		.required("*Phone number is required"),
+	// phone: Yup.string()
+	// 	.min(10, "*Phone number must be 10 digits")
+	// 	.required("*Phone number is required"),
 });
 
 export default function SignUpPage({ navigation }) {
@@ -40,6 +41,14 @@ export default function SignUpPage({ navigation }) {
 	const [date, setDate] = useState(new Date());
 	const [mode, setMode] = useState("date");
 	const [show, setShow] = useState(false);
+
+	const handleSubmit = async (values) => {
+		try {
+			await signUpUser(values);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	const onChange = (event, selectedDate) => {
 		const currentDate = selectedDate;
@@ -67,12 +76,15 @@ export default function SignUpPage({ navigation }) {
 					name: "",
 					email: "",
 					password: "",
-					confirmPassword: "",
-					phone: "",
-					checked: true,
+					// confirmPassword: "",
+					// phone: "",
+					// checked: true,
 				}}
 				validationSchema={PasswordSchema}
-				onSubmit={(values) => console.log(values)}
+				onSubmit={(values) => {
+					// console.log(values);
+					handleSubmit(values);
+				}}
 			>
 				{({ handleChange, handleSubmit, values, touched, errors }) => (
 					<View className=" flex-1 flex-col justify-evenly items-center w-full h-full bg-white p-3">
@@ -100,7 +112,7 @@ export default function SignUpPage({ navigation }) {
 									value={values.email}
 								/>
 
-								<View className="flex-row justify-between border-gray-200 ">
+								{/* <View className="flex-row justify-between border-gray-200 ">
 									<TextInput
 										className="flex-1 border-b mr-6 border-gray-200 py-2 px-2 text-base text-gray-700"
 										placeholder="Phone"
@@ -139,7 +151,7 @@ export default function SignUpPage({ navigation }) {
 								</View>
 								{touched.phone && errors.phone && (
 									<Text className="text-red-600 px-2 my-1 text-xs">{errors.phone}</Text>
-								)}
+								)} */}
 
 								<View className="mt-4 flex-row justify-between border-b border-gray-200">
 									<TextInput
@@ -165,7 +177,7 @@ export default function SignUpPage({ navigation }) {
 										{errors.password}
 									</Text>
 								)}
-
+{/* 
 								<View className="mt-4 flex-row justify-between border-b border-gray-200">
 									<TextInput
 										className="py-2 px-2 text-base text-gray-700"
@@ -189,8 +201,8 @@ export default function SignUpPage({ navigation }) {
 									<Text className="text-red-600 px-2 my-1 text-xs">
 										{errors.confirmPassword}
 									</Text>
-								)}
-
+								)} */}
+{/* 
 								<View className="flex-row justify-start items-center px-2 my-4 ">
 									<BouncyCheckbox
 										size={14}
@@ -209,13 +221,13 @@ export default function SignUpPage({ navigation }) {
 											textDecorationLine: "none",
 										}}
 									/>
-								</View>
+								</View> */}
 								<View className=" my-2">
 									<PrimaryButton
 										onPress={() => {
 											handleSubmit();
 											console.log({ errors });
-											navigation.navigate("Home");
+											// navigation.navigate("Home");
 										}}
 									>
 										Sign In

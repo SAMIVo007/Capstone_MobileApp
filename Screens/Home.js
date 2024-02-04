@@ -1,12 +1,40 @@
-import { Image, ScrollView, Text, TextInput,SafeAreaView, View } from "react-native";
+import {
+	Image,
+	ScrollView,
+	Text,
+	TextInput,
+	SafeAreaView,
+	View,
+	Button,
+} from "react-native";
 import { Ionicons, MaterialIcons, AntDesign } from "@expo/vector-icons";
 // import Card from "../Components/card";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Carousel, Card } from "react-native-ui-lib";
+import Colors from "../Components/Colors";
+import { logoutUser } from "../util/Api";
+import { useRoute } from '@react-navigation/native';
 
+export default function HomePage({ route ,navigation }) {
 
-export default function HomePage() {
+	// const route = useRoute();
+	console.log(route);
+	// const userId = route.params.userId; 
+	// const { userSessionToken } = route.params;
+	// console.log({userSessionToken});
+	const handleLogout = async (values) => {
+		try {
+			const response = await logoutUser(values);
+			console.log(response.session.sessionToken);
+			if (!response.session.sessionToken) {
+				navigation.navigate("Login");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	const items = [1, 2, 3, 4];
 
 	const renderItem = (item, index) => {
@@ -16,7 +44,6 @@ export default function HomePage() {
 				style={{
 					justifyContent: "center",
 					alignItems: "center",
-					// padding: 12,
 				}}
 			>
 				<Card>
@@ -41,7 +68,10 @@ export default function HomePage() {
 			<StatusBar style="light" />
 
 			<View className="flex-1 ">
-				<View className="bg-primaryBlue rounded-b-3xl p-4 pt-14">
+				<View
+					className="bg-primaryBlue p-4 pt-14"
+					style={{ borderBottomEndRadius: 24, borderBottomStartRadius: 24 }}
+				>
 					<View className="flex-row justify-between">
 						<View className="flex-row justify-between">
 							<Image
@@ -54,6 +84,7 @@ export default function HomePage() {
 						</View>
 
 						<View className="flex-row justify-between ">
+							<Button title="logout" color={"white"} onPress={()=>{ handleLogout(); }} />
 							<MaterialIcons
 								name="qr-code-scanner"
 								size={24}
