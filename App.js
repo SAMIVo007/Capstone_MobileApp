@@ -26,6 +26,7 @@ function BottomTab() {
 						<Ionicons name="home" size={size} color={color} />
 					),
 				}}
+				// initialParams={params}
 			/>
 			<Tab.Screen
 				name="Menu"
@@ -70,7 +71,7 @@ export default function App() {
 					/>
 					<Stack.Screen
 						name="Home"
-						component={BottomTab}
+						component={HomePage}
 						options={{ headerShown: false }}
 					/>
 				</Stack.Navigator>

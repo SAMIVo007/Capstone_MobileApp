@@ -30,8 +30,10 @@ export default function LoginPage({ navigation }) {
 		try {
 		  const response = await loginUser(values);
 		  console.log("LoginScreentoken:",response.session.sessionToken)
+			
 		  if (response.session.sessionToken) {
-			navigation.navigate("Home", { userId: 87 } );
+			navigation.navigate("Home", {userId: response.session.sessionToken});
+			// navigation.navigate({userId: response.session.sessionToken});
 		  }
 		} catch (error) {
 		  console.log(error);
@@ -45,8 +47,8 @@ export default function LoginPage({ navigation }) {
 				initialValues={{ email: "", password: "", checked: false }}
 				validationSchema={PasswordSchema}
 				onSubmit={(values) => {
-					// console.log(values),
-					handleLogin(values)
+					console.log(values);
+					handleLogin(values);
 				}}
 			>
 				{({ handleChange, handleSubmit, values, touched, errors }) => (

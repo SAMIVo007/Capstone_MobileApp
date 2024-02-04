@@ -76,9 +76,9 @@ export default function SignUpPage({ navigation }) {
 					name: "",
 					email: "",
 					password: "",
-					// confirmPassword: "",
-					// phone: "",
-					// checked: true,
+					confirmPassword: "",
+					phone: "",
+					checked: true,
 				}}
 				validationSchema={PasswordSchema}
 				onSubmit={(values) => {
@@ -112,7 +112,7 @@ export default function SignUpPage({ navigation }) {
 									value={values.email}
 								/>
 
-								{/* <View className="flex-row justify-between border-gray-200 ">
+								<View className="flex-row justify-between border-gray-200 ">
 									<TextInput
 										className="flex-1 border-b mr-6 border-gray-200 py-2 px-2 text-base text-gray-700"
 										placeholder="Phone"
@@ -151,7 +151,7 @@ export default function SignUpPage({ navigation }) {
 								</View>
 								{touched.phone && errors.phone && (
 									<Text className="text-red-600 px-2 my-1 text-xs">{errors.phone}</Text>
-								)} */}
+								)}
 
 								<View className="mt-4 flex-row justify-between border-b border-gray-200">
 									<TextInput
@@ -177,7 +177,7 @@ export default function SignUpPage({ navigation }) {
 										{errors.password}
 									</Text>
 								)}
-{/* 
+
 								<View className="mt-4 flex-row justify-between border-b border-gray-200">
 									<TextInput
 										className="py-2 px-2 text-base text-gray-700"
@@ -201,8 +201,8 @@ export default function SignUpPage({ navigation }) {
 									<Text className="text-red-600 px-2 my-1 text-xs">
 										{errors.confirmPassword}
 									</Text>
-								)} */}
-{/* 
+								)}
+
 								<View className="flex-row justify-start items-center px-2 my-4 ">
 									<BouncyCheckbox
 										size={14}
@@ -221,13 +221,13 @@ export default function SignUpPage({ navigation }) {
 											textDecorationLine: "none",
 										}}
 									/>
-								</View> */}
+								</View>
 								<View className=" my-2">
 									<PrimaryButton
 										onPress={() => {
 											handleSubmit();
 											console.log({ errors });
-											// navigation.navigate("Home");
+											navigation.navigate("Login");
 										}}
 									>
 										Sign In
