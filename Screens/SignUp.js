@@ -25,13 +25,13 @@ const PasswordSchema = Yup.object().shape({
 		.max(16, "*Password should be max of 16 characters")
 		.required("*Password is required"),
 
-	// confirmPassword: Yup.string()
-	// 	.oneOf([Yup.ref("password"), null], "*Passwords must match")
-	// 	.required("*Password is required"),
+	confirmPassword: Yup.string()
+		.oneOf([Yup.ref("password"), null], "*Passwords must match")
+		.required("*Password is required"),
 
-	// phone: Yup.string()
-	// 	.min(10, "*Phone number must be 10 digits")
-	// 	.required("*Phone number is required"),
+	phone: Yup.string()
+		.min(10, "*Phone number must be 10 digits")
+		.required("*Phone number is required"),
 });
 
 export default function SignUpPage({ navigation }) {
