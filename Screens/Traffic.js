@@ -175,7 +175,9 @@ export default function Traffic({ route, navigation }) {
 							>
 								<Card>
 									<Card.Image
-										source={require("../assets/Images/land.jpeg")}
+										source={{
+											uri: "https://imgd.aeplcdn.com/664x374/n/cw/ec/138895/safari-facelift-exterior-right-front-three-quarter-39.jpeg?isig=0&q=80",
+										}}
 										style={{ height: 130, width: 300 }}
 									/>
 								</Card>
@@ -231,9 +233,7 @@ export default function Traffic({ route, navigation }) {
 					}}
 				>
 					<View className="rounded-3xl overflow-hidden ">
-						<ScrollView
-							showsVerticalScrollIndicator={false}
-						>
+						<ScrollView showsVerticalScrollIndicator={false}>
 							<BlurView
 								intensity={70}
 								tint="light"

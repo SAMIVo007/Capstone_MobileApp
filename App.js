@@ -50,17 +50,6 @@ export default function App() {
 				/>
 
 				<Tab.Screen
-					name="Report"
-					component={Report}
-					options={{
-						headerShown: false,
-						tabBarIcon: ({ color, size }) => (
-							<FontAwesome5 name="fist-raised" size={size} color={color} />
-						),
-					}}
-				/>
-
-				<Tab.Screen
 					name="Menu"
 					component={MenuScreen}
 					options={{
