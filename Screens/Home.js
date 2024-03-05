@@ -24,23 +24,25 @@ import { logoutUser, fetchUserDetails, isSessionValid } from "../util/Api";
 import FadedView from "../Components/FadeView";
 import { BlurView } from "expo-blur";
 
-export default function HomePage({ navigation }) {
+export default function HomePage({ token }) {
 	const [myuser, setmyuser] = useState("");
-	// const sessionToken = route.params.userId;
 
-	const handleLogout = async () => {
-		try {
-			const loggedOut = await logoutUser(sessionToken);
+	console.log("HomePage:", token);
+	const sessionToken = token;
 
-			if (loggedOut) {
-				navigation.navigate("Login");
-			} else {
-				console.log("Not logeed in");
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	// const handleLogout = async () => {
+	// 	try {
+	// 		const loggedOut = await logoutUser(sessionToken);
+
+	// 		if (loggedOut) {
+	// 			navigation.navigate("Login");
+	// 		} else {
+	// 			console.log("Not logeed in");
+	// 		}
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// };
 
 	useEffect(() => {
 		const getMyUser = async () => {
@@ -60,30 +62,37 @@ export default function HomePage({ navigation }) {
 		}
 	}, []);
 
-	const items = [1, 2, 3, 4];
+	const items = [
+		{
+			uri: "https://static.theprint.in/wp-content/uploads/2018/08/Modi-Ujjawala.jpg",
+		},
+		{
+			uri: "https://wallpapers.com/images/hd/narendra-modi-india-flag-8rwmh1jtmbmtvmh7.jpg",
+		},
+		{
+			uri: "https://thedailyguardian.com/wp-content/uploads/2022/08/Modi-birthday-1.jpeg",
+		},
+		{
+			uri: "https://cdn.zeebiz.com/sites/default/files/2021/11/24/166989-pm-modi.jpeg",
+		},
+		{
+			uri: "https://akm-img-a-in.tosshub.com/indiatoday/images/breaking_news/202202/modi-pti_1200x768.jpeg?VersionId=ipAZl_bHB8k412gUoI81QCKUIWdfKuEs",
+		},
+	];
 
 	const renderItem = (item, index) => {
 		return (
-			<View
-				key={index}
-				style={{
-					justifyContent: "center",
-					alignItems: "center",
-				}}
-			>
-				<Card>
-					<Card.Section
-						content={[{ text: `Card ${item}`, text70: true, white: true }]}
-						contentStyle={{
-							alignItems: "center",
-							backgroundColor: "green",
-							padding: 12,
-							width: 370,
-							height: 200,
-							justifyContent: "center",
-						}}
-					/>
-				</Card>
+			<View className="justify-center items-center" key={index}>
+				<Image
+					source={item}
+					style={{
+						width: 380,
+						height: 200,
+						borderRadius: 15,
+						// borderWidth: 0.5,
+						// borderColor: "black",
+					}}
+				/>
 			</View>
 		);
 	};

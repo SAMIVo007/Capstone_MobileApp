@@ -227,7 +227,7 @@ export default function SignUpPage({ navigation }) {
 										onPress={() => {
 											handleSubmit();
 											console.log({ errors });
-											navigation.navigate("Login");
+											// navigation.navigate("Login");
 										}}
 									>
 										Sign In

@@ -29,7 +29,7 @@ import Traffic from "./Traffic";
 import { BlurView } from "expo-blur";
 import PrimaryButton from "../Components/primaryButton";
 
-export default function HomePage({ route, navigation }) {
+export default function HomePage({ navigateTo, token }) {
 	const [Notifications, setNotifications] = useState(true);
 	const items = [1, 2, 3, 4];
 
@@ -175,7 +175,7 @@ export default function HomePage({ route, navigation }) {
 								</View>
 							</TouchableOpacity>
 
-							<TouchableOpacity className="flex-row justify-between items-center">
+							<TouchableOpacity onPress={()=> navigateTo(6)} className="flex-row justify-between items-center">
 								<View className="flex-row items-center">
 									<BlurView
 										intensity={88}

@@ -5,7 +5,12 @@ const API_URL = "http://localhost:3000/auth";
 export const signUpUser = async (userData) => {
 	console.log(userData);
 	try {
+		console.log("hi");
+
 		const response = await axios.post(`${API_URL}/signup`, userData);
+				console.log("hi");
+
+		console.log(response);
 		return response.data;
 	} catch (error) {
 		throw error;
@@ -52,9 +57,7 @@ export const fetchUserDetails = async (sessionId) => {
 		if (response.status == 200) {
 			console.log("in status 200");
 			return response;
-		}
-		else
-		{
+		} else {
 			console.log("in error");
 		}
 	} catch (error) {

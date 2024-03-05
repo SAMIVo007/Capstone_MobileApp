@@ -15,7 +15,6 @@ import Colors from "../Components/Colors";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import * as Yup from "yup";
 import { Formik } from "formik";
-import { useNavigation, useRoute } from "@react-navigation/native";
 import { loginUser } from "../util/Api";
 
 const PasswordSchema = Yup.object().shape({
@@ -25,16 +24,16 @@ const PasswordSchema = Yup.object().shape({
 		.required("*Password is required"),
 });
 
-export default function LoginPage( ) {
+export default function LoginScreen({navigateTo}) {
 
-	const navigation = useNavigation();
 	const handleLogin = async (values) => {
 		try {
 			const response = await loginUser(values);
-			console.log("LoginScreentoken:", response.session.sessionToken);
+			// console.log("LoginScreentoken:", response.session.sessionToken);
 
 			if (response.session.sessionToken) {
-				navigation.navigate("Home", { userId: response.session.sessionToken });
+				// navigation.navigate("Home", { userId: response.session.sessionToken });
+				navigateTo(7, response.session.sessionToken);
 			}
 		} catch (error) {
 			console.log(error);
